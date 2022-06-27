@@ -22,6 +22,7 @@
 				</button>
 			</nav>
 
+			<!-- AddNew -->
 			<div class="modal" id="modalAdd">
 				<div class="form-content">
 					<div class="btn-close-form" onclick="closeModalAdd()">
@@ -90,6 +91,7 @@
 				</div>
 			</div>
 
+			<!-- Edit -->
 			<div class="modal" id="modalEdit">
 				<div class="form-content">
 					<div class="btn-close-form" onclick="closeModalEdit()">
@@ -102,7 +104,7 @@
 							</div>
 							<div class="control">
 								<label>Titulo: </label>
-								<input type="text" id="tile" />
+								<input type="text" id="title" />
 							</div>
 							<div class="control">
 								<label>Año: </label>
@@ -158,6 +160,91 @@
 				</div>
 			</div>
 
+			<!-- MOVIE INFO -->
+			<div class="modal" id="modalInfo">
+				<div class="form-content">
+					<div class="btn-close-form" onclick="closeModalInfo()">
+						X
+					</div>
+					<div class="form-body">
+						<form id="formInfo" class="form-group">
+							<div class="control">
+								<label>ID:</label>
+								<input disabled id="id" type="number" />
+								<!-- </div>
+							<div class="control"> -->
+								<label>Titulo: </label>
+								<input disabled type="text" id="title" />
+							</div>
+							<div class="control">
+								<label>Año: </label>
+								<input disabled type="number" id="year" />
+								<!-- </div>
+							<div class="control"> -->
+								<label>URL Poster: </label>
+								<input disabled type="text" id="imgUrl" />
+							</div>
+							<div class="control">
+								<label>Cetificado: </label>
+								<input disabled type="text" id="certificate" />
+								<!-- </div>
+							<div class="control"> -->
+								<label>Duracion: </label>
+								<input disabled type="number" id="runtime" />
+							</div>
+							<div class="control">
+								<label>IMDB: </label>
+								<input disabled type="number" id="imdbRating" />
+								<!-- </div>
+							<div class="control"> -->
+								<label>MetaScore: </label>
+								<input disabled type="number" id="metaScore" />
+							</div>
+							<div class="control">
+								<label>Votos: </label>
+								<input disabled type="number" id="votes" />
+								<!-- </div>
+							<div class="control"> -->
+								<label>Taquilla: </label>
+								<input disabled type="number" id="gross" />
+							</div>
+
+							<div class="control">
+								<label>Descripcion: </label>
+								<input disabled type="text" id="info" />
+							</div>
+						</form>
+					</div>
+					<div class="form-footer">
+						<button
+							type="button"
+							class="btn btn-danger"
+							onclick="openModalConfirm()"
+						>
+							Eliminar
+						</button>
+						<button
+							type="button"
+							class="btn btn-success"
+							onclick="editMovie()"
+						>
+							Editar
+						</button>
+
+						<button
+							type="button"
+							class="btn btn-success"
+							id="SaveChanges"
+							onclick="updateMovie()"
+						>
+							Guardar
+						</button>
+					</div>
+					<span id="msgFormEdit" class="msg-error"></span>
+				</div>
+			</div>
+
+			<!-- Delete -->
 			<div class="modal" id="modalConfirm">
 				<div class="form-content">
 					<div class="btn-close-form" onclick="closeModalConfirm()">

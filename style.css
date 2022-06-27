@@ -27,6 +27,7 @@ html {
 .card {
 	background: white;
 	padding: 15px;
+	padding-bottom: 0;
 	width: 330px;
 	height: 550px;
 	display: inline-block;
@@ -34,6 +35,16 @@ html {
 	margin-right: 10px;
 	border-radius: 8px;
 	box-shadow: 0 0 8px rgb(0 0 0 / 30%);
+}
+
+.card-info {
+	height: 100px;
+}
+
+.options {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 }
 
 .card .options {
@@ -62,7 +73,7 @@ html {
 	border-radius: 8px;
 	position: relative;
 	background: #ffffff;
-	max-width: 300px;
+	max-width: 600px;
 	margin: 1.75rem auto;
 }
 
@@ -119,4 +130,10 @@ label {
 	background: #ffb6b6;
 	border: 1px #e14747 solid;
 	color: #8a0606;
+}
+
+/*------- SPECIAL BUTTONS -------*/
+
+#SaveChanges {
+	display: none;
 }

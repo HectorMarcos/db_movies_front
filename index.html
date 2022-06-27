@@ -16,11 +16,12 @@
 	<body>
 		<div class="container">
 			<nav class="navbar">
-				<h2>CRUD: API REST - db_movies</h2>
+				<h2>db_movies</h2>
 				<button type="button" id="btnAdd" class="btn btn-success">
-					Agregar Customer
+					Add Movie
 				</button>
 			</nav>
+
 			<div class="modal" id="modalAdd">
 				<div class="form-content">
 					<div class="btn-close-form" onclick="closeModalAdd()">
@@ -29,36 +30,43 @@
 					<div class="form-body">
 						<form id="formAdd">
 							<div class="control">
-								<label>Nombre: </label>
-								<input type="text" name="name" />
+								<input id="id" type="hidden" />
 							</div>
 							<div class="control">
-								<label>Apellido: </label>
-								<input type="text" name="surname" />
+								<label>Titulo: </label>
+								<input type="text" name="title" />
 							</div>
 							<div class="control">
-								<label>Fecha de nacimiento: </label>
-								<input type="text" name="birthdate" />
+								<label>Año: </label>
+								<input type="number" name="year" />
 							</div>
 							<div class="control">
-								<label>Telefono: </label>
-								<input type="text" name="phone" />
+								<label>URL Poster: </label>
+								<input type="text" name="imgUrl" />
 							</div>
 							<div class="control">
-								<label>Pais: </label>
-								<input type="text" name="country" />
+								<label>Cetificado: </label>
+								<input type="text" name="certificate" />
 							</div>
 							<div class="control">
-								<label>Ciudad: </label>
-								<input type="text" name="city" />
+								<label>Duracion: </label>
+								<input type="number" name="runtime" />
 							</div>
 							<div class="control">
-								<label>Direccion: </label>
-								<input type="text" name="direction" />
+								<label>IMDB: </label>
+								<input type="number" name="imdbRating" />
 							</div>
 							<div class="control">
-								<label>Codigo Postal: </label>
-								<input type="text" name="postCode" />
+								<label>MetaScore: </label>
+								<input type="number" name="metaScore" />
+							</div>
+							<div class="control">
+								<label>Votos: </label>
+								<input type="number" name="votes" />
+							</div>
+							<div class="control">
+								<label>Taquilla: </label>
+								<input type="number" name="gross" />
 							</div>
 						</form>
 					</div>
@@ -73,7 +81,7 @@
 						<button
 							type="button"
 							class="btn btn-success"
-							onclick="addCustomer()"
+							onclick="addMovie()"
 						>
 							Guardar
 						</button>
@@ -93,36 +101,40 @@
 								<input id="id" type="hidden" />
 							</div>
 							<div class="control">
-								<label>Nombre: </label>
-								<input type="text" id="name" />
+								<label>Titulo: </label>
+								<input type="text" id="tile" />
 							</div>
 							<div class="control">
-								<label>Apellido: </label>
-								<input type="text" id="surname" />
+								<label>Año: </label>
+								<input type="text" id="year" />
 							</div>
 							<div class="control">
-								<label>Fecha de nacimiento: </label>
-								<input type="text" id="birthdate" />
+								<label>URL Poster: </label>
+								<input type="text" id="imgUrl" />
 							</div>
 							<div class="control">
-								<label>Telefono: </label>
-								<input type="text" id="phone" />
+								<label>Cetificado: </label>
+								<input type="text" id="certificate" />
 							</div>
 							<div class="control">
-								<label>Pais: </label>
-								<input type="text" id="country" />
+								<label>Duracion: </label>
+								<input type="text" id="runtime" />
 							</div>
 							<div class="control">
-								<label>Ciudad: </label>
-								<input type="text" id="city" />
+								<label>IMDB: </label>
+								<input type="text" id="imdbRating" />
 							</div>
 							<div class="control">
-								<label>Direccion: </label>
-								<input type="text" id="direction" />
+								<label>MetaScore: </label>
+								<input type="text" id="metaScore" />
 							</div>
 							<div class="control">
-								<label>Codigo Postal: </label>
-								<input type="text" id="postCode" />
+								<label>Votos: </label>
+								<input type="text" id="votes" />
+							</div>
+							<div class="control">
+								<label>Taquilla: </label>
+								<input type="text" id="gross" />
 							</div>
 						</form>
 					</div>
@@ -176,7 +188,7 @@
 
 			<div class="alert" id="alert">Algo sucedió..</div>
 
-			<div id="customerList" class="products-list"></div>
+			<div id="movieList" class="movieList"></div>
 
 			<script src="app.js"></script>
 		</div>

@@ -6,10 +6,29 @@ html {
 	margin-top: 20px;
 }
 
+.moviePoster {
+	max-width: 250px;
+	height: 370px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}
+
+.moviePoster > img {
+	max-width: 250px;
+}
+
+.movieList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 .card {
 	background: white;
 	padding: 15px;
-	min-width: 200px;
+	width: 330px;
+	height: 550px;
 	display: inline-block;
 	margin-bottom: 10px;
 	margin-right: 10px;

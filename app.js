@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/movies_api/movies/";
+const API_URL = "http://localhost:8080/movies_api/movies";
 let movie = [];
 let deleteId = null;
 
@@ -7,7 +7,9 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 const getMovies = async () => {
-	let response = await fetch(API_URL);
+	let response = await fetch(`${API_URL}/`, {
+		method: "GET",
+	});
 	let moviesData = await response.json();
 	console.log(moviesData);
 	renderResult(moviesData);
@@ -16,64 +18,58 @@ const getMovies = async () => {
 const customerList = document.querySelector("#customerList");
 
 const renderResult = (movie) => {
-	let listHTML = `<table class="table">
-		<tr>
-			<th>ID</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Fecha de nacimiento</th>
-			<th>Telefono</th>
-			<th>Pais</th>
-			<th>Ciudad</th>
-			<th>Direccion</th>
-			<th>Codigo Postal</th>
-		</tr>
-		`;
+	let listHTML = "";
 	movie.forEach((movie) => {
 		listHTML += `
-		<tr>
-			<td>${movie.id}</td>
-			<td>${movie.title}</td>
-			
-			<td><button type="button" class="btn btn-primary" onclick="openModalEdit(${movie.id})">Editar</button></td>
-			<td><button type="button" class="btn btn-primary" onclick="openModalConfirm(${movie.id})">Eliminar</button></td>
-		</tr>
+		<div class="card">
+		<div class="moviePoster"><img src="${movie.imageUrl}"  alt=""></div>
+        <div>Titulo: ${movie.title}</div>
+        <div>Año: ${movie.year}</div>
+        <div>IMDB: ${movie.imdbRating}</div>
+        <div class="options">
+          <button type="button" onclick="editProduct(${movie.id})">Editar</button>
+          <button type="button" onclick="openModalConfirm(${movie.id})">Eliminar</button>
+		  <button type="button" onclick="openModalConfirm(${movie.id})">Ficha completa</button>
+        </div>
+      </div>
     `;
 	});
-	listHTML += `</table>`;
-	customerList.innerHTML = listHTML;
+
+	movieList.innerHTML = listHTML;
 };
 
-/* const addCustomer = () => {
+const addMovie = () => {
 	const formData = new FormData(document.querySelector("#formAdd"));
 
 	document.querySelector("#msgFormAdd").innerHTML = "";
 
-	const customer = {
-		name: formData.get("name"),
-		surname: formData.get("surname"),
-		birthdate: formData.get("bithdate"),
-		phone: formData.get("phone"),
-		country: formData.get("country"),
-		city: formData.get("city"),
-		direction: formData.get("direction"),
-		postCode: formData.get("postCode"),
+	const movie = {
+		title: formData.get("title"),
+		year: formData.get("year"),
+		imageUrl: formData.get("imgUrl"),
+		certificate: formData.get("certificate"),
+		runtime: formData.get("runtime"),
+		imdbRating: formData.get("imdbRating"),
+		metaScore: formData.get("metaScore"),
+		votes: formData.get("votes"),
+		gross: formData.get("gross"),
 	};
 
-	console.log(customer);
+	console.log(movie);
 
 	fetch(
-		`${API_URL}/add?name=${customer.name}
-		&surname=${customer.surname}
-		&birthdate=${customer.birthdate}
-		&phone=${customer.phone}
-		&country=${customer.country}
-		&city=${customer.city}
-		&direction=${customer.direction}
-		&postCode=${customer.postCode}`,
+		`${API_URL}/add?title=${movie.title}
+		&year=${movie.year}
+		&imageUrl=${movie.imageUrl}
+		&certificate=${movie.certificate}
+		&runtime=${movie.runtime}
+		&imdbRating=${movie.imdbRating}
+		&metaScore=${movie.metaScore}
+		&votes=${movie.votes}
+		&gross=${movie.gross}`,
 		{
 			method: "POST",
-			body: JSON.stringify(customer),
+			body: JSON.stringify(movie),
 			headers: {
 				"Content-Type": "application/json",
 			},
@@ -86,10 +82,11 @@ const renderResult = (movie) => {
 		})
 		.then((response) => {
 			alertManager("success", response);
-			getCustomer();
+			getMovies();
 		});
 };
 
+/*
 const getCustomerByID = async (id) => {
 	let response = await fetch(`${API_URL}/${id}`);
 	let customerData = await response.json();
@@ -143,8 +140,8 @@ const updateCustomer = () => {
 
 	document.querySelector("#formEdit").reset();
 };
-
-const deleteProduct = (deleteId) => {
+*/
+const deleteMovie = (deleteId) => {
 	fetch(`${API_URL}/remove/${deleteId}`, {
 		method: "DELETE",
 	})
@@ -155,18 +152,18 @@ const deleteProduct = (deleteId) => {
 		.then((response) => {
 			alertManager("success", response);
 			closeModalConfirm();
-			getCustomer();
+			getMovies();
 			deleteId = null;
 		});
 };
 
 const confirmDelete = (res) => {
 	if (res) {
-		deleteProduct(deleteId);
+		deleteMovie(deleteId);
 	} else {
 		closeModalConfirm();
 	}
-}; */
+};
 
 // MODAL ADD MANAGER
 /** --------------------------------------------------------------- */

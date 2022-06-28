@@ -2,20 +2,25 @@ html {
 	font-family: sans-serif;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
 .products-list {
 	margin-top: 20px;
 }
 
 .moviePoster {
-	max-width: 250px;
+	width: 250px;
 	height: 370px;
-	display: block;
 	margin: 0 auto;
 	margin-bottom: 15px;
 }
 
 .moviePoster > img {
-	max-width: 250px;
+	width: 250px;
+	height: 370px;
 }
 
 .movieList {

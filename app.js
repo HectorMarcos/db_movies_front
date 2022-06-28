@@ -4,6 +4,7 @@ let deleteId = null;
 
 window.addEventListener("DOMContentLoaded", () => {
 	getMovies();
+	openModalInfo(1);
 });
 
 const getMovies = async () => {
@@ -21,10 +22,11 @@ const renderResult = (movie) => {
 	//FIXME IMG BACKGROUND
 	let listHTML = "";
 	movie.forEach((movie) => {
-		let img = movie.imgUrl;
+		let img = movie.imageUrl;
+		console.log(movie.imageUrl);
 		listHTML += `
 		<div class="card">
-		<div class="moviePoster" style="background-image: url("${img}");" ><img src="${movie.imageUrl}"  alt=""></div>
+		<div class="moviePoster"><img src="${movie.imageUrl}"></div>
 		<div class="card-info">
         <div>Titulo: ${movie.title}</div>
         <div>Año: ${movie.year}</div>

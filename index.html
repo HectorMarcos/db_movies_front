@@ -91,75 +91,6 @@
 				</div>
 			</div>
 
-			<!-- Edit -->
-			<div class="modal" id="modalEdit">
-				<div class="form-content">
-					<div class="btn-close-form" onclick="closeModalEdit()">
-						X
-					</div>
-					<div class="form-body">
-						<form id="formEdit" class="form-group">
-							<div class="control">
-								<input id="id" type="hidden" />
-							</div>
-							<div class="control">
-								<label>Titulo: </label>
-								<input type="text" id="title" />
-							</div>
-							<div class="control">
-								<label>Año: </label>
-								<input type="text" id="year" />
-							</div>
-							<div class="control">
-								<label>URL Poster: </label>
-								<input type="text" id="imgUrl" />
-							</div>
-							<div class="control">
-								<label>Cetificado: </label>
-								<input type="text" id="certificate" />
-							</div>
-							<div class="control">
-								<label>Duracion: </label>
-								<input type="text" id="runtime" />
-							</div>
-							<div class="control">
-								<label>IMDB: </label>
-								<input type="text" id="imdbRating" />
-							</div>
-							<div class="control">
-								<label>MetaScore: </label>
-								<input type="text" id="metaScore" />
-							</div>
-							<div class="control">
-								<label>Votos: </label>
-								<input type="text" id="votes" />
-							</div>
-							<div class="control">
-								<label>Taquilla: </label>
-								<input type="text" id="gross" />
-							</div>
-						</form>
-					</div>
-					<div class="form-footer">
-						<button
-							type="button"
-							class="btn btn-danger"
-							onclick="closeModalEdit()"
-						>
-							Cancelar
-						</button>
-						<button
-							type="button"
-							class="btn btn-success"
-							onclick="updateCustomer()"
-						>
-							Guardar cambios
-						</button>
-					</div>
-					<span id="msgFormEdit" class="msg-error"></span>
-				</div>
-			</div>
-
 			<!-- MOVIE INFO -->
 			<div class="modal" id="modalInfo">
 				<div class="form-content">
@@ -211,7 +142,12 @@
 
 							<div class="control">
 								<label>Descripcion: </label>
-								<input disabled type="text" id="info" />
+								<textarea
+									disabled
+									id="info"
+									rows="4"
+									cols="59"
+								></textarea>
 							</div>
 						</form>
 					</div>
